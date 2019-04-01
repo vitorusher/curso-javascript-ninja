@@ -116,18 +116,21 @@ citado acima, no lugar de "pessoas".
 carro.adicionarPessoas = function(numeroPessoas) {
 	var totalPessoas = carro.quantidadePessoas + numeroPessoas;
 	var quantasPessoasCabem = carro.assentos - carro.quantidadePessoas;
-	var pluralOuSingular = quantasPessoasCabem === 1 ? 'pessoa' : 'pessoas';
+	var quantasPessoasTem = carro.quantidadePessoas + numeroPessoas;
+	var pluralOuSingular1 = quantasPessoasCabem === 1 ? 'cabe' : 'cabem';
+	var pluralOuSingular2 = quantasPessoasCabem === 1 ? 'pessoa' : 'pessoas';
+	var pluralOuSingular3 = quantasPessoasTem === 1 ? 'pessoa' : 'pessoas';
 
 	if (carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos) {
 		return 'O carro já está lotado!';
     }
 
 	if (totalPessoas > carro.assentos) {
-		return 'Só cabem mais '+ quantasPessoasCabem +' '+ pluralOuSingular +'!';
+		return 'Só '+ pluralOuSingular1 +' mais '+ quantasPessoasCabem +' '+ pluralOuSingular2 +'!';
     }
 
     carro.quantidadePessoas += numeroPessoas;
-	return 'Já temos '+ carro.quantidadePessoas +' pessoas no carro!';
+	return 'Já temos '+ carro.quantidadePessoas +' '+ pluralOuSingular3 +' no carro!';
 }
    
 /*
